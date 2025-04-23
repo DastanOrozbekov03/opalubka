@@ -53,9 +53,10 @@ header {
   justify-content: center;
   text-align: center;
   color: #FFFFFF;
-  background: url('/images/pexels-quang-nguyen-vinh-222549-2138126.png') no-repeat center center;
-  background-size: cover;
-  background-attachment: fixed;
+  background-repeat: no-repeat; /* Переносим из background */
+  background-position: center center; /* Переносим из background */
+  background-size: cover; /* Переносим из background */
+  background-attachment: fixed; /* Оставляем как есть */
 }
 
 header::before {
