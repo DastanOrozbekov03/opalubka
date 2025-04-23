@@ -220,9 +220,9 @@ table th {
 }
 
 .carousel-btn:hover {
-  background: linear-gradient(135deg, #FFCA28 0%, #FFE082 100%); /* Светлее при наведении */
-  box-shadow: 0 6px 16px rgba(255, 215, 0, 0.5), /* Усиливаем золотую тень */
-  0 0 12px rgba(255, 193, 7, 0.7); /* Усиливаем желтую тень */
+  background: linear-gradient(135deg, #FFCA28 0%, #FFE082 100%); 
+  box-shadow: 0 6px 16px rgba(255, 215, 0, 0.5), 
+  0 0 12px rgba(255, 193, 7, 0.7); 
   transform: translateY(-50%) scale(1.05);
 }
 
