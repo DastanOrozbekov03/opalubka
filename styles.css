@@ -1,0 +1,405 @@
+body {
+    background-color: #F9FAFB;
+    color: #1F2937;
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+body.no-tailwind {
+    background: #F9FAFB;
+    color: #333;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.btn-primary {
+    background-color: #FFC107;
+    color: #1F2937;
+    padding: 12px 24px;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.btn-primary:hover {
+    background-color: #FFB300;
+}
+
+header {
+    position: relative;
+    height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #FFFFFF;
+    background: url('./images/pexels-quang-nguyen-vinh-222549-2138126.png') no-repeat center center;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 1;
+}
+
+header h1, header p, header a {
+    position: relative;
+    z-index: 2;
+}
+
+section {
+    padding: 60px 20px;
+    background-color: #FFFFFF;
+}
+
+h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #FFC107;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #F3F4F6;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+table th, table td {
+    border: 1px solid #E5E7EB;
+    padding: 12px;
+    text-align: left;
+}
+
+table th {
+    background-color: #FFC107;
+    color: #FFFFFF;
+}
+
+.contact-icon {
+    transition: transform 0.3s ease;
+    width: 40px;
+    height: 40px;
+}
+
+.contact-icon:hover {
+    transform: scale(1.2);
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.animate-pulse {
+    animation: pulse 2s ease-in-out infinite;
+}
+
+/* Цвета иконок */
+.contact-icon.whatsapp svg {
+    color: #25D366;
+}
+
+.contact-icon.phone svg {
+    color: #1E90FF;
+}
+
+.contact-icon.instagram svg {
+    color: #E1306C;
+}
+
+.contact-icon.location svg {
+    color: #FFC107;
+}
+
+/* Стили для номеров телефона */
+.no-underline {
+    text-decoration: none;
+}
+
+.text-blue-501 {
+    color: #1E90FF;
+}
+
+.carousel {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.carousel-inner {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.carousel-item {
+    flex: 0 0 100%;
+    text-align: center;
+}
+
+.carousel-item img {
+    width: 100%;
+    max-width: 800px;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    image-rendering: -webkit-optimize-contrast;
+}
+
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: #FFC107;
+    color: #1F2937;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: background-color 0.3s ease;
+}
+
+.carousel-btn:hover {
+    background-color: #FFB300;
+}
+
+.carousel-btn.prev {
+    left: 10px;
+}
+
+.carousel-btn.next {
+    right: 10px;
+}
+
+.floating-contact {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.floating-contact-toggle {
+    background-color: #FFC107;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+    background: linear-gradient(135deg, #FFC107 0%, #FFECB3 50%, #FFC107 100%);
+    background-size: 200% 200%;
+    animation: shine 3s ease-in-out infinite;
+}
+
+.floating-contact-toggle:hover {
+    transform: scale(2);
+}
+
+@keyframes shine {
+    0% {
+        background-position: 0% 80%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.floating-contact-toggle.active .message-icon {
+    display: none;
+}
+
+.floating-contact-toggle.active .close-icon {
+    display: block;
+}
+
+.floating-contact-menu {
+    position: absolute;
+    bottom: 70px;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    pointer-events: none;
+}
+
+.floating-contact-menu.active {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+.floating-contact-menu a {
+    background-color: #FFFFFF;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.floating-contact-menu.active a {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    animation: pop 0.3s ease-out forwards;
+}
+
+.floating-contact-menu.active a:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.floating-contact-menu.active a:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+@keyframes pop {
+    0% {
+        transform: translateY(10px) scale(0.8);
+    }
+    50% {
+        transform: translateY(0) scale(1.2);
+    }
+    100% {
+        transform: translateY(0) scale(1);
+    }
+}
+
+.floating-contact-menu a:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.floating-contact-menu a svg {
+    width: 24px;
+    height: 24px;
+}
+
+.floating-contact-menu a.whatsapp svg {
+    color: #25D366;
+}
+
+.floating-contact-menu a.phone svg {
+    color: #1E90FF;
+}
+
+section#address svg,
+section#contacts .flex.items-center svg {
+    width: 24px;
+    height: 24px;
+}
+
+.feature-card {
+    background-color: #FFFFFF;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+}
+
+.feature-icon {
+    background-color: #FF6F61;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 10px;
+}
+
+.feature-icon svg {
+    width: 24px;
+    height: 24px;
+    color: #FFFFFF;
+}
+
+.feature-card h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #1F2937;
+    margin-bottom: 10px;
+}
+
+.feature-card p {
+    color: #6B7280;
+}
+
+#banner-footer {
+    position: relative;
+    height: 300px;
+    background: url('./images/pexels-quang-nguyen-vinh-222549-2138126.png') no-repeat center center;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+#banner-footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 1;
+}
+
+@media (max-width: 768px) {
+    header, #banner-footer {
+        background-attachment: scroll;
+    }
+}
