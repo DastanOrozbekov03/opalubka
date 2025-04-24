@@ -1,64 +1,67 @@
 body {
-  background-color: #F9FAFB;
-  color: #1F2937;
-  font-family: 'Montserrat', sans-serif;
+  background-color: #F5F7FA;
+  color: #1A202C;
+  font-family: 'Montserrat', 'Poppins', sans-serif;
   margin: 0;
   padding: 0;
   overflow-x: hidden;
+  line-height: 1.6;
 }
-
 body.no-tailwind {
-  background: #F9FAFB;
-  color: #333;
-  font-family: Arial, sans-serif;
+  background: #F5F7FA;
+  color: #2D3748;
+  font-family: 'Poppins', sans-serif;
 }
-
 .container {
-  overflow: visible;
-  max-width: 1200px;
+  max-width: 1280px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 24px;
 }
-
 .fade-in {
   opacity: 0;
-  transform: translateY(20px);
+  transform: translateY(30px);
   transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
-
 .fade-in.visible {
   opacity: 1;
   transform: translateY(0);
 }
-
+.no-tailwind .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+.no-tailwind h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
 .btn-primary {
-  background-color: #FFC107;
-  color: #1F2937;
-  padding: 12px 24px;
-  border-radius: 8px;
-  transition: background-color 0.3s ease;
+  background-color: #F59E0B;
+  color: #FFFFFF;
+  padding: 14px 28px;
+  border-radius: 10px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
   text-decoration: none;
   display: inline-block;
+  font-weight: 600;
 }
-
 .btn-primary:hover {
-  background-color: #FFB300;
+  background-color: #D97706;
+  transform: translateY(-2px);
 }
-
 header {
   position: relative;
-  height: 600px;
+  height: 700px;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
   color: #FFFFFF;
-  background-repeat: no-repeat; /* Переносим из background */
-  background-position: center center; /* Переносим из background */
-  background-size: cover; /* Переносим из background */
-  background-attachment: fixed; /* Оставляем как есть */
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  background-attachment: fixed;
 }
-
 header::before {
   content: '';
   position: absolute;
@@ -66,143 +69,129 @@ header::before {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.6);
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.4));
   z-index: 1;
 }
-
 header h1, header p, header a {
   position: relative;
   z-index: 2;
 }
-
+header h1 {
+  font-size: 3.5rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+}
+header p {
+  font-size: 1.25rem;
+  max-width: 600px;
+  margin: 0 auto 2rem;
+}
 section {
-  padding: 60px 20px;
+  padding: 80px 20px;
   background-color: #FFFFFF;
 }
-
 h2 {
-  font-size: 2.5rem;
+  font-size: 2.75rem;
   font-weight: 700;
-  color: #FFC107;
+  color: #F59E0B;
   text-align: center;
-  margin-bottom: 2rem;
+  margin-bottom: 2.5rem;
 }
-
 table {
   width: 100%;
   border-collapse: collapse;
-  background-color: #F3F4F6;
-  border-radius: 8px;
+  background-color: #F9FAFB;
+  border-radius: 10px;
   overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
-
 table th, table td {
-  border: 1px solid #E5E7EB;
-  padding: 12px;
+  border: 1px solid #E2E8F0;
+  padding: 16px;
   text-align: left;
 }
-
 table th {
-  background-color: #FFC107;
+  background-color: #F59E0B;
   color: #FFFFFF;
+  font-weight: 600;
 }
-
 .contact-icon {
-  transition: transform 0.3s ease;
-  width: 40px;
-  height: 40px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  width: 48px;
+  height: 48px;
 }
-
 .contact-icon:hover {
-  transform: scale(1.2);
+  transform: scale(1.15);
+  opacity: 0.9;
 }
-
 @keyframes pulse {
-  0% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.2);
-  }
-  100% {
-    transform: scale(1);
-  }
+  0% { transform: scale(1); }
+  50% { transform: scale(1.15); }
+  100% { transform: scale(1); }
 }
-
 .animate-pulse {
-  animation: pulse 2s ease-in-out infinite;
+  animation: pulse 2.5s ease-in-out infinite;
+  will-change: transform;
 }
-
-/* Цвета иконок */
 .contact-icon.whatsapp svg {
   color: #25D366;
 }
-
 .contact-icon.phone svg {
   color: #1E90FF;
 }
-
 .contact-icon.instagram svg {
   color: #E1306C;
 }
-
 .contact-icon.location svg {
-  color: #FFC107;
+  color: #F59E0B;
 }
-
-/* Стили для номеров телефона */
 .no-underline {
   text-decoration: none;
 }
-
 .text-blue-501 {
-  color: #1E90FF;
+  color: #3B82F6;
 }
-
 .carousel {
   position: relative;
   overflow: hidden;
   width: 100%;
-  max-width: 800px;
+  max-width: 900px;
   margin: 0 auto;
-  padding: 0 70px;
+  padding: 0 80px;
 }
-
 .carousel-inner {
   display: flex;
-  transition: transform 0.5s ease;
+  transition: transform 0.6s ease;
   width: 100%;
 }
-
 .carousel-item {
   flex: 0 0 100%;
   text-align: center;
 }
-
 .carousel-item img {
   width: 100%;
-  max-width: 800px;
+  max-width: 900px;
   height: auto;
-  aspect-ratio: 2 / 1;
-  /*object-fit: contain;*/
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  aspect-ratio: 3 / 2;
+  border-radius: 12px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease;
 }
-
+.carousel-item img:hover {
+  transform: scale(1.02);
+}
 @media (min-width: 769px) {
   .carousel-item img {
     height: auto;
-   aspect-ratio: 2 / 1;
+    aspect-ratio: 3 / 2;
     object-fit: contain;
   }
 }
-
-
 .carousel-btn {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: linear-gradient(135deg, #FFD700 0%, #FFCA28 100%);
+  background: linear-gradient(135deg, #F59E0B 0%, #FBBF24 100%);
   border: none;
   color: #FFFFFF;
   font-size: 24px;
@@ -216,49 +205,25 @@ table th {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 48px;
-  height: 48px;
+  width: 56px;
+  height: 56px;
 }
-
 .carousel-btn:hover {
+
   background: linear-gradient(135deg, #FFCA28 0%, #FFE082 100%); 
   box-shadow: 0 6px 16px rgba(255, 215, 0, 0.5), 
   0 0 12px rgba(255, 193, 7, 0.7); 
   transform: translateY(-50%) scale(1.05);
 }
-
 .carousel-btn.prev {
   left: 10px;
 }
-
 .carousel-btn.next {
   right: 10px;
 }
-
 @media (max-width: 768px) {
-  .carousel-btn.prev {
-    left: -40px;
-  }
-
-  .carousel-btn.next {
-    right: -40px;
-  }
-
-  .carousel-btn {
-    font-size: 20px;
-    padding: 8px;
-  }
-}
-
-@media (max-width: 768px) {
-  .carousel-btn.prev {
-    left: 10px;
-  }
-
-  .carousel-btn.next {
-    right: 10px;
-  }
-
+  .carousel-btn.prev { left: 10px; }
+  .carousel-btn.next { right: 10px; }
   .carousel-btn {
     font-size: 20px;
     padding: 8px 12px;
@@ -266,94 +231,76 @@ table th {
     height: 40px;
   }
 }
-
 .floating-contact {
+  position彼此: none;
   position: fixed;
-  bottom: 20px;
-  right: 20px;
+  bottom: 30px;
+  right: 30px;
   z-index: 1000;
 }
-
 .floating-contact-toggle {
-  background-color: #FFC107;
-  width: 60px;
-  height: 60px;
+  width: 70px;
+  height: 70px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
   transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease, rotate 0.3s ease;
   background: linear-gradient(135deg, #FFC107 0%, #FFECB3 50%, #FFC107 100%);
   background-size: 200% 200%;
-  animation: shine 3s ease-in-out infinite;
+  animation: shine 4s ease-in-out infinite;
 }
-
 .floating-contact-toggle:hover {
-  transform: scale(1.2);
+  transform: scale(1.15);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
 }
-
 .floating-contact-toggle.active {
   background: transparent;
   box-shadow: none;
   rotate: 360deg;
 }
-
 @keyframes shine {
-  0% {
-    background-position: 0% 80%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
+  0% { background-position: 0% 80%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
-
 .floating-contact-toggle .message-icon,
 .floating-contact-toggle .close-icon {
-  width: 24px;
-  height: 24px;
+  width: 28px;
+  height: 28px;
   transition: opacity 0.3s ease;
 }
-
 .floating-contact-toggle .message-icon {
   display: block;
 }
-
 .floating-contact-toggle .close-icon {
   display: none;
 }
-
 .floating-contact-toggle.active .message-icon {
   display: none;
 }
-
 .floating-contact-toggle.active .close-icon {
   display: block;
 }
-
 .floating-contact-menu {
   position: absolute;
-  bottom: 70px;
+  bottom: 80px;
   right: 0;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 12px;
   opacity: 0;
-  transform: translateY(20px);
+  transform: translateY(30px);
   transition: opacity 0.3s ease, transform 0.3s ease;
   pointer-events: none;
 }
-
 .floating-contact-menu.active {
   opacity: 1;
   transform: translateY(0);
   pointer-events: auto;
 }
-
 .floating-contact-menu a {
   background-color: #FFFFFF;
   width: 60px;
@@ -362,109 +309,86 @@ table th {
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-
 .floating-contact-menu.active a {
   opacity: 1;
   transform: translateY(0) scale(1);
-  animation: pop 0.3s ease-out forwards;
+  animation: pop 0.4s ease-out forwards;
 }
-
 .floating-contact-menu.active a:nth-child(1) {
   animation-delay: 0.1s;
 }
-
 .floating-contact-menu.active a:nth-child(2) {
   animation-delay: 0.2s;
 }
-
 @keyframes pop {
-  0% {
-    transform: translateY(10px) scale(0.8);
-  }
-  50% {
-    transform: translateY(0) scale(1.2);
-  }
-  100% {
-    transform: translateY(0) scale(1);
-  }
+  0% { transform: translateY(15px) scale(0.7); }
+  50% { transform: translateY(0) scale(1.25); }
+  100% { transform: translateY(0) scale(1); }
 }
-
 .floating-contact-menu a:hover {
   transform: scale(1.1);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
 }
-
 .floating-contact-menu a svg {
   width: 24px;
   height: 24px;
 }
-
 .floating-contact-menu a.whatsapp svg {
   color: #25D366;
 }
-
 .floating-contact-menu a.phone svg {
   color: #1E90FF;
 }
-
 section#address svg,
 section#contacts .flex.items-center svg {
   width: 24px;
   height: 24px;
 }
-
 .floating-contact-menu a.whatsapp svg {
   color: #25D366;
 }
-
 .floating-contact-menu a.phone svg {
   color: #1E90FF;
 }
-
 .feature-card {
   background-color: #FFFFFF;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  padding: 24px;
   text-align: center;
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-
 .feature-card:hover {
   transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
 }
-
 .feature-icon {
-  background-color: #FF6F61;
-  width: 40px;
-  height: 40px;
+  background-color: #F59E0B;
+  width: 48px;
+  height: 48px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 0 auto 10px;
+  margin: 0 auto 12px;
 }
-
 .feature-icon svg {
-  width: 24px;
-  height: 24px;
+  width: 28px;
+  height: 28px;
   color: #FFFFFF;
 }
-
 .feature-card h3 {
   font-size: 1.25rem;
   font-weight: 700;
-  color: #1F2937;
-  margin-bottom: 10px;
+  color: #1A202C;
+  margin-bottom: 12px;
 }
-
 .feature-card p {
-  color: #6B7280;
+  color: #4B5563;
 }
-
 #banner-footer {
   position: relative;
   height: 300px;
@@ -472,7 +396,6 @@ section#contacts .flex.items-center svg {
   background-size: cover;
   background-attachment: fixed;
 }
-
 #banner-footer::before {
   content: '';
   position: absolute;
@@ -480,43 +403,147 @@ section#contacts .flex.items-center svg {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.6);
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.4));
   z-index: 1;
 }
-
 @media (max-width: 768px) {
   header, #banner-footer {
     background-attachment: scroll;
+    height: 500px;
+  }
+  header h1 {
+    font-size: 2.5rem;
+  }
+  header p {
+    font-size: 1rem;
+  }
+  h2 {
+    font-size: 2rem;
   }
 }
-
 .gallery img {
   max-width: 100%;
   height: auto;
   display: block;
   margin: 0 auto;
 }
-
 button {
   padding: 12px 16px;
   font-size: 16px;
   border-radius: 8px;
 }
-
-
 @media (max-width: 480px) {
   .calculator {
     padding: 16px;
     width: 100%;
   }
-
   .calculator input,
   .calculator select {
     width: 100%;
     margin-bottom: 10px;
   }
-
   .calculator button {
     width: 100%;
+  }
+}
+@media (max-width: 768px) {
+  header, #banner-footer {
+    background-attachment: initial;
+  }
+}
+.invalid {
+  border-color: #EF4444;
+  background-color: #FEE2E2;
+}
+#partners {
+  background-color: #212121;
+  padding: 80px 20px;
+  position: relative;
+  overflow: hidden;
+}
+#partners h2 {
+  color: #fff;
+  font-size: 36px;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 40px;
+}
+.icon-grid {
+  position: relative;
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  height: 800px;
+  padding: 20px;
+}
+.icon-grid .icon {
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background-color: #fff;
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+  opacity: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+.icon-grid .icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 50%;
+  padding: 15px;
+  box-sizing: border-box;
+}
+.icon-grid .icon.visible {
+  opacity: 1;
+  animation: fall 0.8s ease forwards;
+}
+.icon-grid .icon:not(.interacted) {
+  animation: pulse 10s ease-in-out infinite;
+}
+.icon-grid .icon:hover {
+  transform: scale(1.6);
+  box-shadow: 0 12px 24px rgba(255, 255, 255, 0.4);
+  z-index: 2;
+}
+@keyframes fall {
+  0% { transform: translateY(-80px); opacity: 0; }
+  60% { transform: translateY(20px); opacity: 1; }
+  80% { transform: translateY(-15px); }
+  100% { transform: translateY(0); opacity: 1; }
+}
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+@media (max-width: 768px) {
+  #partners h2 {
+    font-size: 24px;
+  }
+  .icon-grid {
+    height: auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+    gap: 20px;
+    padding: 10px;
+    justify-items: center;
+  }
+  .icon-grid .icon {
+    position: static;
+    width: 80px;
+    height: 80px;
+    transform: none;
+    animation: none;
+  }
+  .icon-grid .icon.visible {
+    animation: fadeIn 0.8s ease forwards;
+  }
+  .icon-grid .icon:hover {
+    transform: scale(1.2);
+    box-shadow: 0 8px 16px rgba(255, 255, 255, 0.3);
   }
 }
