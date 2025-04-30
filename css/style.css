@@ -548,7 +548,7 @@ button {
 
 #partners {
   background-color: #212121;
-  padding: 80px 20px;
+  padding: 60px 20px; /* Уменьшено для компактности */
   position: relative;
   overflow: hidden;
 }
@@ -558,7 +558,7 @@ button {
   font-size: 36px;
   font-weight: 700;
   text-align: center;
-  margin-bottom: 40px;
+  margin-bottom: 30px; /* Уменьшено для компактности */
 }
 
 .icon-grid {
@@ -566,14 +566,14 @@ button {
   width: 100%;
   max-width: 1100px;
   margin: 0 auto;
-  height: 800px;
+  height: 400px; /* Уменьшена высота для компактности */
   padding: 20px;
 }
 
 .icon-grid .icon {
   position: absolute;
-  width: 120px;
-  height: 120px;
+  width: 100px; /* Уменьшен размер иконок */
+  height: 100px;
   border-radius: 50%;
   background-color: #fff;
   transition: transform 0.5s ease, box-shadow 0.5s ease;
@@ -589,7 +589,7 @@ button {
   height: 100%;
   object-fit: contain;
   border-radius: 50%;
-  padding: 15px;
+  padding: 12px; /* Уменьшено для пропорциональности */
   box-sizing: border-box;
 }
 
@@ -616,17 +616,23 @@ button {
 }
 
 @media (max-width: 768px) {
+  #partners {
+    padding: 40px 15px; /* Уменьшено для мобильных */
+  }
+
   #partners h2 {
     font-size: 24px;
   }
+
   .icon-grid {
     height: auto;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
-    gap: 20px;
+    gap: 15px; /* Уменьшен зазор */
     padding: 10px;
     justify-items: center;
   }
+
   .icon-grid .icon {
     position: static;
     width: 80px;
@@ -634,9 +640,11 @@ button {
     transform: none;
     animation: none;
   }
+
   .icon-grid .icon.visible {
     animation: fadeIn 0.8s ease forwards;
   }
+
   .icon-grid .icon:hover {
     transform: scale(1.2);
     box-shadow: 0 8px 16px rgba(255, 255, 255, 0.3);

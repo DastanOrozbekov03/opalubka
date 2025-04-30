@@ -14,14 +14,14 @@ try {
       let top, left;
 
       do {
-        top = Math.random() * (gridHeight - 150);
-        left = Math.random() * (gridWidth - 150);
+        top = Math.random() * (gridHeight - 100); // Уменьшено для меньшего размера иконок
+        left = Math.random() * (gridWidth - 100);
         attempts++;
       } while (
           positions.some(pos => {
             const dx = pos.left - left;
             const dy = pos.top - top;
-            return Math.sqrt(dx * dx + dy * dy) < 120;
+            return Math.sqrt(dx * dx + dy * dy) < 100; // Уменьшено минимальное расстояние
           }) && attempts < 50
           );
 
@@ -46,7 +46,7 @@ try {
         iconLinks.forEach((iconLink, index) => {
           setTimeout(() => {
             iconLink.classList.add('visible');
-          }, index * 250);
+          }, index * 200);
         });
         observer.unobserve(entry.target);
       }
@@ -338,3 +338,59 @@ try {
   console.error('Ошибка в карте:', e);
 }
 
+document.getElementById('submit-btn').addEventListener('click', function(event) {
+  event.preventDefault(); // Предотвращаем стандартную отправку формы
+
+  // Получение значений полей
+  const name = document.getElementById('name').value.trim();
+  let phone = document.getElementById('phone').value.trim();
+  const message = document.getElementById('message').value.trim();
+
+  // Проверка обязательных полей
+  if (!name || !phone) {
+    alert('Пожалуйста, заполните поля Имя и Телефон.');
+    return;
+  }
+
+  // Очистка номера от пробелов и дефисов
+  phone = phone.replace(/[\s-]/g, '');
+
+  // Проверка формата телефона
+  const phoneRegex = /^(?:\+996|0)?\d{9}$/;
+  if (!phoneRegex.test(phone)) {
+    alert('Пожалуйста, введите корректный номер телефона (например, +996555123456, 0555123456 или 555123456).');
+    return;
+  }
+
+  // Нормализация номера: добавляем +996, если код отсутствует
+  if (phone.startsWith('0')) {
+    phone = '+996' + phone.slice(1);
+  } else if (!phone.startsWith('+996')) {
+    phone = '+996' + phone;
+  }
+
+  // Формирование сообщения для WhatsApp
+  let whatsappMessage = `Здравствуйте!%0A`;
+  whatsappMessage += `Имя: ${encodeURIComponent(name)}%0A`;
+  whatsappMessage += `Телефон: ${encodeURIComponent(phone)}%0A`;
+  if (message) {
+    whatsappMessage += `Сообщение: ${encodeURIComponent(message)}%0A`;
+  }
+
+  // URL для WhatsApp
+  const whatsappUrl = `https://wa.me/+996502554488?text=${whatsappMessage}`;
+
+  try {
+    // Открытие WhatsApp
+    window.open(whatsappUrl, '_blank');
+
+
+    // Очистка формы
+    document.getElementById('name').value = '';
+    document.getElementById('phone').value = '';
+    document.getElementById('message').value = '';
+  } catch (e) {
+    alert('Не удалось открыть WhatsApp. Пожалуйста, попробуйте снова.');
+    console.error('Ошибка при открытии WhatsApp:', e);
+  }
+});
