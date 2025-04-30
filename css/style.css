@@ -839,3 +839,87 @@ button {
     font-size: 1.5rem;
   }
 }
+
+
+/* Навигационная панель */
+nav {
+  background-color: #FFFFFF;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+nav .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+nav img {
+  height: 48px; /* Размер логотипа на десктопе */
+  width: auto;
+  transition: transform 0.3s ease;
+}
+
+nav img:hover {
+  transform: scale(1.05);
+}
+
+nav a {
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+nav a:hover {
+  color: #F59E0B;
+}
+
+/* Стили для названия компании */
+nav .flex.items-center span {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  color: #F59E0B;
+  font-size: 1.5rem; /* 24px */
+  line-height: 1.2;
+}
+
+/* Мобильное меню */
+#mobile-menu {
+  width: 100%;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #FFFFFF;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  pointer-events: none;
+}
+
+#mobile-menu:not(.hidden) {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+#mobile-menu a {
+  padding: 12px 24px;
+  display: block;
+}
+
+/* Адаптивность */
+@media (min-width: 768px) {
+  #mobile-menu {
+    display: none !important; /* Скрываем мобильное меню на десктопе */
+  }
+}
+
+@media (max-width: 768px) {
+  nav img {
+    height: 36px; /* Меньший логотип на мобильных */
+  }
+  nav .flex.items-center span {
+    font-size: 1.125rem; /* 18px */
+  }
+}
