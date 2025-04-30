@@ -394,3 +394,39 @@ document.getElementById('submit-btn').addEventListener('click', function(event) 
     console.error('Ошибка при открытии WhatsApp:', e);
   }
 });
+
+try {
+  const menuToggle = document.getElementById('menu-toggle');
+  const mobileMenu = document.getElementById('mobile-menu');
+
+  if (!menuToggle || !mobileMenu) {
+    console.error('Элементы навигации не найдены: menu-toggle или mobile-menu отсутствуют');
+  }
+
+  const toggleMenu = () => {
+    const isOpen = mobileMenu.classList.toggle('hidden');
+    menuToggle.setAttribute('aria-expanded', !isOpen);
+  };
+
+  menuToggle.addEventListener('click', toggleMenu);
+  menuToggle.addEventListener('touchstart', (e) => {
+    e.preventDefault();
+    toggleMenu();
+  });
+
+  mobileMenu.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      mobileMenu.classList.add('hidden');
+      menuToggle.setAttribute('aria-expanded', 'false');
+    });
+  });
+
+  document.addEventListener('click', (e) => {
+    if (!mobileMenu.contains(e.target) && !menuToggle.contains(e.target) && !mobileMenu.classList.contains('hidden')) {
+      mobileMenu.classList.add('hidden');
+      menuToggle.setAttribute('aria-expanded', 'false');
+    }
+  });
+} catch (e) {
+  console.error('Ошибка в гамбургер-меню:', e);
+}

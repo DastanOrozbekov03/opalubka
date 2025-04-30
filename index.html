@@ -10,12 +10,11 @@
 
   <meta property="og:title" content="Аренда корейской опалубки в Бишкеке">
   <meta property="og:description" content="Опалубка PRO — аренда высококачественной корейской опалубки с быстрой доставкой и поддержкой 24/7.">
-  <meta property="og:image" content="/images/formwork.jpeg">
+  <meta property="og:image" content="/images/logo/logo_pai.png">
   <meta property="og:url" content="https://yourwebsite.com">
 
-  <link rel="icon" href="/requirements/favicon.ico" sizes="any">
-  <link rel="icon" href="/requirements/icon.svg" type="image/svg+xml">
-  <link rel="apple-touch-icon" href="requirements/icon.png">
+  <link rel="icon" href="/images/logo/logo_pai.ico" sizes="any">
+  <link rel="apple-touch-icon" href="/images/logo/logo_pai.png">
   <!-- Leaflet CSS -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -28,6 +27,40 @@
 </head>
 
 <body>
+<!-- Навигационная панель с логотипом и названием -->
+<nav class="fixed top-0 left-0 w-full bg-white shadow-md z-50">
+  <div class="container flex items-center justify-between py-4">
+    <!-- Логотип и название компании -->
+    <a href="index.html" class="flex items-center space-x-4">
+      <img src="/images/logo/logo_pai.png" alt="Пайдубал KG Logo" class="h-12 w-auto">
+      <span class="text-[#F59E0B] font-bold text-xl tracking-tight">Пайдубал KG</span>
+    </a>
+    <!-- Ссылки навигации -->
+    <div class="hidden md:flex space-x-6">
+      <a href="#about" class="text-[#4B5563] hover:text-[#F59E0B] font-semibold">О компании</a>
+      <a href="#services" class="text-[#4B5563] hover:text-[#F59E0B] font-semibold">Услуги</a>
+      <a href="#calculator" class="text-[#4B5563] hover:text-[#F59E0B] font-semibold">Калькулятор</a>
+      <a href="#contacts" class="text-[#4B5563] hover:text-[#F59E0B] font-semibold">Контакты</a>
+    </div>
+    <!-- Гамбургер-меню для мобильных -->
+    <button class="md:hidden text-[#4B5563] focus:outline-none" id="menu-toggle" aria-label="Toggle navigation menu">
+      <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+      </svg>
+    </button>
+  </div>
+  <!-- Мобильное меню -->
+  <div class="hidden md:hidden bg-white shadow-md" id="mobile-menu">
+    <div class="container flex flex-col space-y-4 py-4">
+      <a href="#about" class="text-[#4B5563] hover:text-[#F59E0B] font-semibold">О компании</a>
+      <a href="#services" class="text-[#4B5563] hover:text-[#F59E0B] font-semibold">Услуги</a>
+      <a href="#calculator" class="text-[#4B5563] hover:text-[#F59E0B] font-semibold">Калькулятор</a>
+      <a href="#contacts" class="text-[#4B5563] hover:text-[#F59E0B] font-semibold">Контакты</a>
+    </div>
+  </div>
+</nav>
+
+<!-- Header Section-->
 
 <header class="parallax" style="background-image: url('/images/background/pexels-quang-nguyen-vinh-222549-2138126.png');">
   <div class="container text-center">
@@ -85,7 +118,7 @@
           </tr>
           <tr>
             <td>Ширина</td>
-            <td>0.3 м</td>
+            <td>Стандарт</td>
           </tr>
           <tr>
             <td>Высота</td>
@@ -344,7 +377,7 @@
               <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.24 1.02l-2.2 2.2z"/>
             </svg>
           </a>
-          <a href="https://instagram.com/https://www.instagram.com/bakwwww_/?utm_source=ig_web_button_share_sheet" target="_blank" class="contact-icon instagram animate-pulse" aria-label="Перейти в Instagram">
+          <a href="https://www.instagram.com/bakwwww_/?utm_source=ig_web_button_share_sheet" target="_blank" class="contact-icon instagram animate-pulse" aria-label="Перейти в Instagram">
             <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
               <path d="M12 2.163c3.204 0 3.584.012 4.85.07 1.366.062 2.633.326 3.608 1.301.975.975 1.24 2.242 1.301 3.608.058 1.266.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.062 1.366-.326 2.633-1.301 3.608-.975.975-2.242 1.24-3.608 1.301-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-1.366-.062-2.633-.326-3.608-1.301-.975-.975-1.24-2.242-1.301-3.608-.058-1.266-.07-1.646-.07-4.85s.012-3.584.07-4.85c.062-1.366.326-2.633 1.301-3.608.975-.975 2.242-1.24 3.608-1.301 1.266-.058 1.646-.07 4.85-.07zm0-2.163c-3.259 0-3.667.014-4.947.072-1.525.069-2.874.377-3.967 1.47-1.093 1.093-1.401 2.442-1.47 3.967-.058 1.28-.072 1.688-.072 4.947s.014 3.667.072 4.947c.069 1.525.377 2.874 1.47 3.967 1.093 1.093 2.442 1.401 3.967 1.47 1.28.058 1.688.072 4.947.072s3.667-.014 4.947-.072c1.525-.069 2.874-.377 3.967-1.47 1.093-1.093 1.401-2.442 1.47-3.967.058-1.28.072-1.688.072-4.947s-.014-3.667-.072-4.947c-.069-1.525-.377-2.874-1.47-3.967-1.093-1.093-2.442-1.401-3.967-1.47-1.28-.058-1.688-.072-4.947-.072zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zm0 10.162a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 11-2.88 0 1.44 1.44 0 012.88 0z"/>
             </svg>
@@ -426,7 +459,7 @@
 <!-- Footer -->
 <footer class="bg-[#F9FAFB] py-6">
   <div class="container text-center text-[#4B5563]">
-    <p>© 2025 Опалубка PRO. Все права защищены.</p>
+    <p>© 2025 Пайдубал KG. Все права защищены.</p>
   </div>
 </footer>
 
